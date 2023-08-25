@@ -8,6 +8,4 @@ resource "random_pet" "petname" {
     separator = "."
     length = "1"  
 }
-output "petname" {
-    value = random_pet.petname.id
-}
+
