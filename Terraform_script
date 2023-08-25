@@ -1,19 +1,14 @@
-resource "local_file" "name" {
-    filename = var.filename
-    content = var.content
+resource "local_file" "My_pet" {
+    filename = "pet.txt"
+    content = "My cat name is ${random_pet.petname.id}"
   
 }
 resource "random_pet" "petname" {
-    prefix = "MR"
+    prefix = "MR" 
     separator = "."
-    length = "1"
+    length = "1"  
 }
-variable "filename" {
-    default = "pet.txt"
-    type = string
-
-}
-variable "content" {
-    default = "I Love CATS"
-    type = string
+output "petname" {
+    value = random_pet.petname.id
+  
 }
